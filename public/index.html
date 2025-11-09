@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>MMRC FPS</title>
+    <style>
+        body { margin: 0; overflow: hidden; } /* スクロールバーと余白を削除 */
+        canvas { display: block; }
+        #score-ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 28px;
+            font-family: sans-serif;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        #ammo-ui {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-size: 32px;
+            font-family: sans-serif;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        #chat-container {
+            position: absolute;
+            bottom: 60px;
+            left: 20px;
+            width: 400px;
+            height: 150px;
+            color: white;
+            font-family: sans-serif;
+            background-color: rgba(0, 0, 0, 0.3);
+            overflow-y: scroll;
+            padding: 5px;
+        }
+        #chat-form {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 400px;
+        }
+        #chat-input {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #888;
+            color: white;
+            padding: 5px;
+        }
+        #reticle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        #damage-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            opacity: 0;
+            pointer-events: none; /* クリックを透過させる */
+        }
+    </style>
+</head>
+<body>
+    <div id="damage-overlay"></div>
+    <div id="reticle"></div>
+    <div id="score-ui">SCORE: 0</div>
+    <div id="chat-container"></div>
+    <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Enter in chat..." autocomplete="off">
+    </form>
+    <div id="ammo-ui">∞</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="client.js"></script>
+</body>
+</html>
