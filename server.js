@@ -182,7 +182,7 @@ io.on('connection', (socket) => {
     });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`サーバーが起動しました: http://localhost:${PORT}`);
     createWorldOnServer();
